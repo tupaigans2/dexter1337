@@ -1,0 +1,210 @@
+<!--
+
+    This code is for lazy people
+    
+    1 • Set your own alert as you want
+    2 • Click on "Generate"
+    3 • Use it in your projects
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <!-- Metatags -->
+        <meta charset="UTF-8">
+        <meta http-equiv= "X-UA-Compatible" content = "IE=edge">
+        <meta name = "viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Sweetalert2 -->
+        <script src = "https://cdn.jsdelivr.net/sweetalert2/6.6.2/sweetalert2.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/sweetalert2/6.6.2/sweetalert2.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+        
+        <!-- CSS -->
+        <link rel="stylesheet" type="text/css" href="style.css">
+
+        <!-- Javascript -->
+        <script src = "script.js"></script>
+
+        <!-- Title -->
+        <title> Create Your Own Alert </title>
+<style type="text/css">
+/* ----------- Main ----------- */
+.container, #choose-type, #submit { 
+    text-align: center; 
+    display: block; 
+    margin: 20px auto; 
+}
+
+.container { 
+    font-size: 1.3em;
+    font-family: arial, sans-serif;    
+    width: 90%;
+}
+
+input {
+    width: 80%;
+    outline: none;
+    padding: 10px;
+    font-size: 1em;
+    color: #555;
+    letter-spacing: 1px;
+}
+
+#choose-text {
+    border: 3px solid #555;
+}
+
+#choose-color, #choose-buttoncolor {
+    border: 4px solid #555;
+    border-radius: 10px;
+}
+
+label {
+    margin: 10px;
+    display: block;
+    color: #333;
+}
+
+#choose-type {
+    padding: 15px;
+    font-size: 0.8em;
+    border: none;
+    background-color: #333;
+    outline: none;
+    width: 80%;
+    color: #ccc;
+    border-radius: 10px;
+    font-style: italic;
+}
+ #choose-type {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+} #choose-type:active {
+   background-color:#555; 
+}
+
+#submit {
+    padding: 10px;
+    border: none;
+    background-color: #333;
+    width: 90%;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 0.8em;
+    color: #ccc;
+    font-weight: bold;
+    outline: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+} #submit:active {
+    background-color: #555;
+    color: #eee;
+}
+
+h3 {
+    font-family: arial, sans-serif;
+    text-align: center;
+    line-height: 25px;
+    color: #333;
+    font-weight: lighter;
+} hr {
+    width: 90%;
+    border: 1px solid #E34040;
+}
+
+#code {
+    width: 90%;
+    overflow: scroll;
+    background-color: #555;
+    color: #eee;
+    margin: 0 auto;
+    font-family: arial;
+}
+
+/* ----------- Generals ----------- */
+body { background-color: #FF4242; margin: 0; padding: 0; }
+
+.off { display: none; }
+.on { display: block; }
+</style>
+    </head>
+
+    <body>
+        <!-- Settings -->
+        <div class = "container">
+            <label>Text: </label><input type="text" id = "choose-text">
+            <select id = "choose-type">
+                <option value = "">Default Alert</option>
+                <option value = "success">Success Alert</option>
+                <option value = "error">Error Alert</option>
+                <option value = "warning">Warning Alert</option>
+            </select>
+            <label>Background Color: </label><input type = "color" id = "choose-color">
+            <label>Button Color: </label><input type = "color" id = "choose-buttoncolor">
+            <button id = "submit">Generate</button>
+        </div>
+
+        <!-- Code -->
+        <h3 class = "off">Copy and paste <br> this <i><b>code</b></i> in your <i><b>HTML</b></i></h3><hr>
+        <p id = "code" class = "off"></p>
+        <script type="text/javascript">
+        /******************************************
+        *                                         *
+        *    Made by: @Maz © 2017                 *
+        *    Title: Custom Alert Generator        *                                         *                                         *
+        *                                         *
+        *       Thank you for run my code.        *
+        *                                         *
+        *                - Maz                    *
+        *                                         *
+        ******************************************/
+        
+        window.onload = function ()
+        {
+        var chooseText = document.getElementById("choose-text");
+        var chooseType = document.getElementById("choose-type");
+        var chooseColor = document.getElementById("choose-color");
+        var chooseButtonColor = document.getElementById("choose-buttoncolor");
+        var button = document.getElementsByTagName("button")[0];
+        var titleCode = document.getElementsByTagName("h3")[0];
+        var showCode = document.getElementsByTagName("p")[0];
+        
+        function Play (title, type, background, confirmButtonColor)
+        {
+        this.title = title;
+        this.type = type;
+        this.background = background;
+        this.confirmButtonColor = confirmButtonColor;
+        }
+        
+        button.onclick = function () 
+        {
+        var lose = new Play("" + chooseText.value + "", "" + chooseType.value + "", 
+        "" + chooseColor.value + "", "" + chooseButtonColor.value + "");
+        swal(lose);
+        
+        if (showCode.className == "off" && titleCode.className == "off") {
+        showCode.className = "on"; titleCode.className = "on";
+        }
+        showCode.innerHTML = '&lt;!DOCTYPE html&gt; <br>&lt;html lang="en"&gt; <br>&lt;head&gt; <br>&lt;meta charset="UTF-8"&gt; <br>&lt;script src = "https://cdn.jsdelivr.net/sweetalert2/6.6.2/sweetalert2.min.js"&gt; &lt;/script&gt; <br>&lt;link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/sweetalert2/6.6.2/sweetalert2.min.css"&gt; <br>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"&gt; &lt;/script&gt; <br>&lt;/head&gt; <br>&lt;body&gt; <br>&lt;script&gt <br>window.onload = function () <br>{ <br>swal({ <br>title:"'+ lose.title+'",<br>type:"'+ lose.type +'",<br>background:"'+lose.background+'",<br>confirmButtonColor:"'+lose.confirmButtonColor+'"<br>})<br>}<br>&lt;/script&gt <br>&lt;/body&gt; <br> &lt;/html&gt;'
+        }
+        }
+        </script>
+    </body>
+
+</html>
+
+<!--
+         **** Made by: Maz ****
+
+You can save this code as private, you can modify my code and also put your name in credits.
+
+Please don't remove my name from here, please don't create useless public duplicate of this code.
+
+-->
